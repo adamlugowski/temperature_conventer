@@ -47,18 +47,24 @@ def temperature_converter():
                 break
         except ValueError:
             print('The unit should be C/F/K')
-    if unit == 'C' and convert == 'F':
-        print(f'Result: {temp}°C is {celsius_to_fahrenheit(temp)}°F')
-    elif unit == 'C' and convert == 'K':
-        print(f'Result: {temp}°C is {celsius_to_kelvin(temp)}°K')
-    elif unit == 'F' and convert == 'C':
-        print(f'Result: {temp}°F is {fahrenheit_to_celsius(temp)}°C')
-    elif unit == 'F' and convert == 'K':
-        print(f'Result: {temp}°F is {fahrenheit_to_kelvin(temp)}°K')
-    elif unit == 'K' and convert == 'C':
-        print(f'Result: {temp}°K is {kelvin_to_celsius(temp)}°C')
-    elif unit == 'K' and convert == 'F':
-        print(f'Result: {temp}°K is {kelvin_to_fahrenheit(temp)}°F')
+
+    if unit == convert:
+        print(f'Result: {temp}°{unit} is the same as {temp}°{convert}')
+    else:
+        if unit == 'C' and convert == 'F':
+            result = celsius_to_fahrenheit(temp)
+        elif unit == 'C' and convert == 'K':
+            result = celsius_to_kelvin(temp)
+        elif unit == 'F' and convert == 'C':
+            result = fahrenheit_to_celsius(temp)
+        elif unit == 'F' and convert == 'K':
+            result = fahrenheit_to_kelvin(temp)
+        elif unit == 'K' and convert == 'C':
+            result = kelvin_to_celsius(temp)
+        elif unit == 'K' and convert == 'F':
+            result = kelvin_to_fahrenheit(temp)
+
+        print(f'Result: {temp}°{unit} is {result}°{convert}')
 
 
 if __name__ == '__main__':
